@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amardeep Foundation - Light For Life</title>
+    <!-- Favicon -->
+    <link rel="icon"  href="images/logo.png" type="image/jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <!-- SEO and Social Media Meta Tags -->
+    <meta property="og:title" content="Amardeep Foundation - Light For Life" />
+    <meta property="og:description" content="An NGO dedicated to societal upliftment since 2015. We believe in the power of education to transform communities." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.amardeep.org" />
+    <meta property="og:site_name" content="Amardeep Foundation" />
+    <meta property="og:image" content="images/logo.png" />
+    <meta property="og:image:alt" content="Amardeep Foundation - Light For Life" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Amardeep Foundation - Spreading Knowledge, Empowering Lives" />
+    <meta name="twitter:description" content="An NGO dedicated to societal upliftment since 2015. We believe in the power of education to transform communities." />
+    <meta name="twitter:url" content="https://www.amardeep.org" />
+    <meta name="twitter:image" content="images/logo.png" />
+    <meta name="twitter:image:alt" content="An NGO dedicated to societal upliftment since 2015." />
+    
+    <style>
+        /* Custom styles for smooth scrolling and animations */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+            color: #0f172a; /* slate-900 */
+        }
+        /* Animation for elements fading in on scroll */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Header shadow on scroll */
+        .header-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Slider styles */
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .slider-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        .slider-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .slider-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .slider-button.prev {
+            left: 1rem;
+        }
+        .slider-button.next {
+            right: 1rem;
+        }
+        /* Modal styles */
+        .modal {
+            transition: opacity 0.25s ease;
+        }
+        .modal-content {
+            transition: transform 0.25s ease;
+        }
+        
+        /* Aurora background for Hero section */
+        .hero-aurora-bg {
+            background-color: #111827; /* A dark fallback background */
+            background-image: 
+                radial-gradient(at 20% 25%, hsla(212, 90%, 50%, 0.4) 0px, transparent 50%),
+                radial-gradient(at 75% 30%, hsla(260, 90%, 60%, 0.4) 0px, transparent 50%),
+                radial-gradient(at 5% 95%, hsla(180, 95%, 55%, 0.3) 0px, transparent 50%),
+                radial-gradient(at 80% 90%, hsla(340, 85%, 60%, 0.3) 0px, transparent 50%);
+        }
+
+        /* Team page specific styles */
+        #team-page {
+            padding-top: 40px; 
+            padding-bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header" class="bg-white/80 backdrop-blur-md fixed top-0 left-0 right-0 z-40 transition-shadow duration-300">
+        <div class="container mx-auto px-6 py-2 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#home" id="logo-link" class="nav-link flex items-center space-x-2">
+                <img src="images/logo.png" alt="Amardeep Foundation Logo" class="h-12 w-12 object-contain">
+                <span class="text-xl font-bold text-slate-800">Amardeep Foundation</span>
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-slate-600 hover:text-indigo-600 transition">Home</a>
+                <a href="#about" class="nav-link text-slate-600 hover:text-indigo-600 transition">About</a>
+                <a href="#work" class="nav-link text-slate-600 hover:text-indigo-600 transition">Our Work</a>
+                <a href="#gallery" class="nav-link text-slate-600 hover:text-indigo-600 transition">Gallery</a>
+                <a href="#team" class="nav-link text-slate-600 hover:text-indigo-600 transition">Our Team</a>
+                <a href="#contact" class="nav-link text-slate-600 hover:text-indigo-600 transition">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-slate-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+             <a href="#home" class="nav-link block py-2 text-slate-600 hover:text-indigo-600">Home</a>
+             <a href="#about" class="nav-link block py-2 text-slate-600 hover:text-indigo-600">About</a>
+             <a href="#work" class="nav-link block py-2 text-slate-600 hover:text-indigo-600">Our Work</a>
+             <a href="#gallery" class="nav-link block py-2 text-slate-600 hover:text-indigo-600">Gallery</a>
+             <a href="#team" class="nav-link block py-2 text-slate-600 hover:text-indigo-600">Our Team</a>
+             <a href="#contact" class="nav-link block py-2 text-slate-600 hover:text-indigo-600">Contact</a>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero-aurora-bg text-white pt-32 pb-20 text-center relative overflow-hidden">
+            <div class="container mx-auto px-6 relative z-10">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Light For Life</h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8">An NGO dedicated to societal upliftment since 2015. We believe in the power of education to transform communities.</p>
+                <a href="#work" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full transition-transform duration-300 transform hover:scale-105">Discover Our Work</a>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">About Amardeep Foundation</h2>
+                    <p class="text-slate-600 mt-2">Working for a better society since 2015.</p>
+                </div>
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2 fade-in-up">
+                        <!-- Image Slider -->
+                        <div id="team-slider" class="slider-container">
+                            <div class="slider-track">
+                                <div class="slide"><img src="images/img(1).jpg" alt="Amardeep Foundation Team" class="w-full"></div>
+                                <div class="slide"><img src="images/IMG-20191027-WA0015(1).jpg" alt="Amardeep Foundation Volunteers" class="w-full"></div>
+                                <div class="slide"><img src="images/Amar Heritage.jpg" alt="Community Work" class="w-full"></div>
+                            </div>
+                            <button class="slider-button prev" id="prevBtn">&lsaquo;</button>
+                            <button class="slider-button next" id="nextBtn">&rsaquo;</button>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 fade-in-up">
+                        <h3 class="text-2xl font-semibold text-slate-800 mb-4">Our Mission</h3>
+                        <p class="text-slate-600 mb-4">
+                            Founded in 2015, the Amardeep Foundation is a non-governmental organization committed to fostering positive change within society. Our core mission is to empower individuals and communities through targeted initiatives in education, health, and social welfare.
+                        </p>
+                        <p class="text-slate-600">
+                            We envision a world where every person has the opportunity to reach their full potential. Through dedication and community collaboration, we strive to address and overcome the challenges faced by the underprivileged.
+                        </p>
+                        <div class="mt-6">
+                           <a href="#team" class="nav-link bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full transition-transform duration-300 transform hover:scale-105 inline-block">Read More About Our Team</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Work Section -->
+        <section id="work" class="py-20 bg-slate-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Our Key Initiatives</h2>
+                    <p class="text-slate-600 mt-2">Making a tangible difference in rural communities.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 fade-in-up"><div class="text-indigo-500 mb-4"><svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg></div><h3 class="text-xl font-bold mb-2">Book Distribution Program</h3><p class="text-slate-600">We actively distribute educational books and learning materials in rural areas, ensuring that children have the resources they need to succeed in their studies and beyond.</p></div>
+                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 fade-in-up"><div class="text-green-500 mb-4"><svg class="w-12 h-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-6.364-.386 1.591-1.591M3 12h2.25m.386-6.364 1.591 1.591" /></svg></div><h3 class="text-xl font-bold mb-2">Community Health</h3><p class="text-slate-600">Organizing health camps and awareness programs to promote well-being and provide essential medical services to underserved populations.</p></div>
+                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 fade-in-up"><div class="text-sky-500 mb-4"><svg class="w-12 h-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m-7.5-2.962a3.75 3.75 0 0 1 5.25 0m-5.25 0a3.75 3.75 0 0 0-5.25 0M12 4.5v.01M12 7.5v.01M12 10.5v.01" /></svg></div><h3 class="text-xl font-bold mb-2">Social Welfare</h3><p class="text-slate-600">Implementing various social welfare projects aimed at improving living conditions and providing support to vulnerable groups within the community.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Glimpses of Our Journey</h2>
+                    <p class="text-slate-600 mt-2">Moments that define our commitment.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="grid gap-4"><div class="fade-in-up"><img class="h-auto max-w-full rounded-lg" src="images/logo.png" alt="Gallery Image"></div><div class="fade-in-up"><img class="h-auto max-w-full rounded-lg" src="images/504761378_4498896910336829_8504313478037536747_n.jpg" alt="Gallery Image"></div></div>
+                    <div class="grid gap-4"><div class="fade-in-up"><img class="h-auto max-w-full rounded-lg" src="images/503201359_4494769727416214_5294266085250959545_n.jpg" alt="Gallery Image"></div><div class="fade-in-up"><img class="h-auto max-w-full rounded-lg" src="images/503476309_4498897027003484_5637365696262662819_n.jpg" alt="Gallery Image"></div></div>
+                    <div class="grid gap-4"><div class="fade-in-up"><img class="h-auto max-w-full rounded-lg" src="images/503705460_4498896967003490_5617899454313389239_n.jpg" alt="Gallery Image"></div><div class="fade-in-up"><img class="h-auto max-w-full rounded-lg" src="images/500580989_4491772857715901_8887935468993735767_n.jpg" alt="Gallery Image"></div></div>
+                    <div class="grid gap-4"><div class="fade-in-up"><img class="h-auto max-w-full rounded-lg" src="images/504350233_4498897073670146_2895033632625151802_n.jpg" alt="Gallery Image"></div><div class="fade-in-up"><img class="h-auto max-w-full rounded-lg" src="images/503366377_4498896957003491_4877862569259086328_n.jpg" alt="Gallery Image"></div></div>
+                </div>
+                <div class="text-center mt-12 fade-in-up">
+                    <a href="#" id="view-more-btn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full transition-transform duration-300 transform hover:scale-105">View More Photos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-slate-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12"><h2 class="text-3xl md:text-4xl font-bold text-slate-800">Get In Touch</h2><p class="text-slate-600 mt-2">We'd love to hear from you. Reach out to us for collaborations or queries.</p></div>
+                <div class="flex flex-col md:flex-row gap-12"><div class="md:w-1/2 fade-in-up"><h3 class="text-xl font-semibold mb-4">Contact Details</h3><p class="text-slate-600 mb-2"><strong>Address:</strong> Shri Radheshyam Rd, Devariya, Mujar, Machhali Shahar, Jaunpur, Uttar Pradesh 222127</p><p>Mobile No. : <a href="tel:+919987270202" class="text-indigo-600 hover:underline">+91 9987270202</a></p><p class="text-slate-600 mb-2"><strong>Hours:</strong> Mon-Sun, 9:00 AM - 5:00 PM</p><p class="text-slate-600 mb-4"><strong>Website:</strong> <a href="http://amardeep.org/" class="text-indigo-600 hover:underline" target="_blank">amardeep.org</a></p><div class="w-full h-64 rounded-lg overflow-hidden shadow-md"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3596.538918846058!2d82.45348837539677!3d25.65342417741995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39901a0b0f024361%3A0x5605c58a25583ba6!2sAmardeep%20Foundation!5e0!3m2!1sen!2sin!4v1753344095000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div>
+                <!-- Contact Form -->
+                <div class="md:w-1/2 fade-in-up">
+                    <form id="contact-form" class="bg-white p-8 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-semibold mb-6">Send us a Message</h3>
+                        <div class="mb-4">
+                            <label for="name" class="block text-slate-700 text-sm font-bold mb-2">Full Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-3 py-2 border rounded-lg text-slate-700 focus:outline-none focus:border-indigo-500" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-slate-700 text-sm font-bold mb-2">Email Address</label>
+                            <input type="email" id="email" name="email" class="w-full px-3 py-2 border rounded-lg text-slate-700 focus:outline-none focus:border-indigo-500" placeholder="you@example.com" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-slate-700 text-sm font-bold mb-2">Message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-3 py-2 border rounded-lg text-slate-700 focus:outline-none focus:border-indigo-500" placeholder="Your message..." required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+              </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Team Page Section (Hidden by default) -->
+    <section id="team-page" class="hidden bg-white">
+        <div class="container mx-auto px-6">
+            <!-- Back to Home Button -->
+            <div class="pt-6">
+                <a href="#home" class="nav-link inline-flex items-center text-indigo-600 hover:text-indigo-800 transition font-semibold">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Back to Home
+                </a>
+            </div>
+
+            <div class="text-center mb-12 mt-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Our Team & Inspiration</h2>
+            </div>
+            
+            <div class="mb-12 p-8 bg-indigo-50 border-l-4 border-indigo-500 rounded-r-lg text-center">
+                <img class="w-40 h-40 rounded-full mx-auto mb-4 object-cover shadow-lg" src="images/memorial.jpg" alt="In Memory of Amar Bahadur Yadav">
+                <h3 class="text-3xl font-bold text-slate-800">In Loving Memory of Amar Bahadur Yadav</h3>
+                <p class="text-slate-600 mt-4 max-w-2xl mx-auto">
+                    The Amardeep Foundation was established in the cherished memory of Shri Amar Bahadur Yadav. His spirit of compassion, dedication to education, and dream of a better society are the cornerstones of our mission. We are committed to carrying forward his legacy by lighting the lamp of knowledge and hope in every life we touch.
+                </p>
+            </div>
+
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Our Leaders</h2>
+                <p class="text-slate-600 mt-2">The driving force behind our mission.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="text-center p-6 bg-slate-50 rounded-lg shadow-md hover:shadow-xl transition-shadow"><img class="w-32 h-32 rounded-full mx-auto mb-4" src="images/chairman.jpg" alt="Profile photo of Chairman"><h3 class="text-xl font-bold text-slate-800">Shree Radheshyam Yadav</h3><p class="text-indigo-600 font-semibold">Chairman</p><p class="text-slate-600 mt-2 text-sm">A visionary leader with a passion for social change and education. The inspiration and guiding light for the Amardeep Foundation.</p></div>
+                <div class="text-center p-6 bg-slate-50 rounded-lg shadow-md hover:shadow-xl transition-shadow"><img class="w-32 h-32 rounded-full mx-auto mb-4" src="images/President.jpg" alt="Profile photo of Working President"><h3 class="text-xl font-bold text-slate-800">Mr. L. S. Yadav</h3><p class="text-indigo-600 font-semibold">Working President & Founder</p><p class="text-slate-600 mt-2 text-sm">Dedicated to operational excellence and ensuring our initiatives create maximum impact on the ground.</p></div>
+                <div class="text-center p-6 bg-slate-50 rounded-lg shadow-md hover:shadow-xl transition-shadow"><img class="w-32 h-32 rounded-full mx-auto mb-4" src="images/pcyadav.png" alt="Profile photo of Secretary"><h3 class="text-xl font-bold text-slate-800">Dr. P. C. Yadav</h3><p class="text-indigo-600 font-semibold">Secretary</p><p class="text-slate-600 mt-2 text-sm">Manages the administrative and organizational aspects, ensuring the smooth functioning of the foundation.</p></div>
+                <div class="text-center p-6 bg-slate-50 rounded-lg shadow-md hover:shadow-xl transition-shadow"><img class="w-32 h-32 rounded-full mx-auto mb-4" src="images/sly.jpg" alt="Profile photo of Member"><h3 class="text-xl font-bold text-slate-800">Mr. S. L. Yadav</h3><p class="text-indigo-600 font-semibold">Member</p></div>
+                <div class="text-center p-6 bg-slate-50 rounded-lg shadow-md hover:shadow-xl transition-shadow"><img class="w-32 h-32 rounded-full mx-auto mb-4" src="images/aw.jpg" alt="Profile photo of Member"><h3 class="text-xl font-bold text-slate-800">Mr. Awadhesh Yadav</h3><p class="text-indigo-600 font-semibold">Member</p></div>
+                <div class="text-center p-6 bg-slate-50 rounded-lg shadow-md hover:shadow-xl transition-shadow"><img class="w-32 h-32 rounded-full mx-auto mb-4" src="images/brijesh.png" alt="Profile photo of Member"><h3 class="text-xl font-bold text-slate-800">Mr. Brijesh Yadav</h3><p class="text-indigo-600 font-semibold">Member</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="bg-slate-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; <span id="copyright-year">2025</span> Amardeep Foundation. All Rights Reserved.</p>
+            <p class="text-sm text-slate-400 mt-2">Designed with care to empower communities.</p>
+        </div>
+    </footer>
+
+    <!-- Gallery Modal -->
+    <div id="gallery-modal" class="modal fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 hidden opacity-0">
+        <div class="modal-content bg-white rounded-lg shadow-xl max-w-5xl w-full max-h-[90vh] overflow-y-auto p-6 relative transform scale-95">
+            <button id="close-modal-btn" class="absolute top-2 right-4 text-slate-500 hover:text-slate-900 text-4xl font-bold">&times;</button>
+            <h2 class="text-3xl font-bold mb-6 text-center text-slate-800">Our Gallery</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                <img src="images/logo.png" class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300" alt="Gallery Image">
+                <img src="images/500580989_4491772857715901_8887935468993735767_n.jpg" class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300" alt="Gallery Image">
+                <img src="images/503345285_4498896973670156_6862128442574630085_n.jpg" class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300" alt="Gallery Image">
+                <img src="images/503366377_4498896957003491_4877862569259086328_n.jpg" class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300" alt="Gallery Image">
+                <img src="images/503640224_4498897020336818_7106862823258850360_n.jpg" class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300" alt="Gallery Image">
+                <img src="images/476803795_675982058147206_2921534438563046936_n.jpg" class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300" alt="Gallery Image">
+                <img src="images/Amar Heritage.jpg" class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300" alt="Gallery Image">
+                <img src="images/img(1).jpg" class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300" alt="Gallery Image">
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const mainContent = document.getElementById('main-content');
+        const teamPage = document.getElementById('team-page');
+        const footer = document.getElementById('footer');
+        const header = document.getElementById('header');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        
+        const yearSpan = document.getElementById('copyright-year');
+        if(yearSpan) {
+            yearSpan.textContent = new Date().getFullYear();
+        }
+
+        const router = () => {
+            const hash = window.location.hash || '#home';
+            if (hash === '#team') {
+                mainContent.classList.add('hidden');
+                teamPage.classList.remove('hidden');
+                footer.classList.add('hidden');
+                window.scrollTo(0, 0);
+            } else {
+                mainContent.classList.remove('hidden');
+                teamPage.classList.add('hidden');
+                footer.classList.remove('hidden');
+                const targetElement = document.querySelector(hash);
+                if (targetElement) {
+                    // Let the browser handle smooth scroll for on-page links
+                }
+            }
+        };
+        
+        // Handle clicks on all navigation links
+        document.querySelectorAll('a.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+
+                // If it's a link to the team page
+                if (href === '#team') {
+                    e.preventDefault();
+                    history.pushState({page: 'team'}, '', '#team');
+                    router();
+                } 
+                // If it's a link back to the main page sections
+                else if (href.startsWith('#')) {
+                     // Check if we are currently on the team page
+                    if(window.location.hash === '#team') {
+                        e.preventDefault();
+                        history.back(); // This will trigger the popstate event
+                    }
+                    // Otherwise, let the default smooth scroll happen
+                }
+            });
+        });
+        
+        // Listen for browser back/forward button
+        window.addEventListener('popstate', router);
+        // Run router on initial page load
+        router();
+
+        // --- Mobile Menu Toggle ---
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            });
+        }
+
+        // --- Header Shadow on Scroll ---
+        if (header) {
+            window.addEventListener('scroll', () => {
+                window.scrollY > 50 ? header.classList.add('header-shadow') : header.classList.remove('header-shadow');
+            });
+        }
+
+        // --- Fade-in Animations on Scroll ---
+        const faders = document.querySelectorAll('.fade-in-up');
+        if (faders.length > 0) {
+            const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+            const appearOnScroll = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+            faders.forEach(fader => appearOnScroll.observe(fader));
+        }
+
+        // --- Team Photo Slider Logic ---
+        const slider = document.getElementById('team-slider');
+        if (slider) {
+            const track = slider.querySelector('.slider-track');
+            const slides = Array.from(track.children);
+            const nextButton = slider.querySelector('#nextBtn');
+            const prevButton = slider.querySelector('#prevBtn');
+            if (slides.length > 0) {
+                let currentIndex = 0;
+                let slideInterval;
+                const moveToSlide = (index) => {
+                    track.style.transform = `translateX(-${index * 100}%)`;
+                    currentIndex = index;
+                };
+                const startSlideShow = () => {
+                    stopSlideShow();
+                    slideInterval = setInterval(() => moveToSlide((currentIndex + 1) % slides.length), 5000);
+                };
+                const stopSlideShow = () => clearInterval(slideInterval);
+                nextButton.addEventListener('click', () => {
+                    moveToSlide((currentIndex + 1) % slides.length);
+                    startSlideShow();
+                });
+                prevButton.addEventListener('click', () => {
+                    moveToSlide((currentIndex - 1 + slides.length) % slides.length);
+                    startSlideShow();
+                });
+                startSlideShow();
+            }
+        }
+
+        // --- Gallery Modal Logic ---
+        const viewMoreBtn = document.getElementById('view-more-btn');
+        const galleryModal = document.getElementById('gallery-modal');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        if (viewMoreBtn && galleryModal && closeModalBtn) {
+            const openModal = (e) => {
+                e.preventDefault();
+                galleryModal.classList.remove('hidden');
+                setTimeout(() => {
+                    galleryModal.classList.remove('opacity-0');
+                    galleryModal.querySelector('.modal-content').classList.remove('scale-95');
+                }, 10);
+            };
+            const closeModal = () => {
+                galleryModal.classList.add('opacity-0');
+                galleryModal.querySelector('.modal-content').classList.add('scale-95');
+                setTimeout(() => galleryModal.classList.add('hidden'), 250);
+            };
+            viewMoreBtn.addEventListener('click', openModal);
+            closeModalBtn.addEventListener('click', closeModal);
+            galleryModal.addEventListener('click', (e) => {
+                if (e.target === galleryModal) closeModal();
+            });
+        }
+        
+        // --- EmailJS Contact Form ---
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            const SERVICE_ID = 'service_yeaf2ds';
+            const ADMIN_TEMPLATE_ID = 'admin_d74sxnq';
+            const USER_TEMPLATE_ID = 'user_dwpcbsc'; 
+            const PUBLIC_KEY = 'shhVbIng-3F-7DxSz';
+
+            emailjs.init(PUBLIC_KEY);
+
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const submitButton = this.querySelector('button[type="submit"]');
+                const originalButtonText = submitButton.textContent;
+                submitButton.disabled = true;
+                submitButton.textContent = 'Sending...';
+
+                const formData = new FormData(this);
+                const templateParams = {
+                    from_name: formData.get('name'),
+                    to_email: formData.get('email'), // This is used by the USER_TEMPLATE_ID
+                    message: formData.get('message'),
+                    // No need to pass from_email here if it's not in the template
+                };
+                
+                // First, send the email to the admin
+                emailjs.send(SERVICE_ID, ADMIN_TEMPLATE_ID, templateParams)
+                    .then(() => {
+                        console.log('Admin email sent successfully!');
+                        // If admin email is successful, then send the email to the user
+                        return emailjs.send(SERVICE_ID, USER_TEMPLATE_ID, templateParams);
+                    })
+                    .then(() => {
+                        console.log('User confirmation email sent successfully!');
+                        submitButton.textContent = 'Message Sent!';
+                        contactForm.reset();
+                    })
+                    .catch((error) => {
+                        console.error('Failed to send one or more emails:', error);
+                        // The error object from EmailJS will contain status and text
+                        alert(`Failed to send message. Error: ${error.text || 'Unknown Error'}`);
+                        submitButton.textContent = 'Failed to Send';
+                    })
+                    .finally(() => {
+                        setTimeout(() => {
+                            submitButton.disabled = false;
+                            submitButton.textContent = originalButtonText;
+                        }, 3000);
+                    });
+            });
+        }
+    });
+    </script>
+
+</body>
+</html>
