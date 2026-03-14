@@ -1,531 +1,684 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amardeep Foundation - Light For Life</title>
-    <!-- Favicon -->
-    <link rel="icon"  href="images/logo.png" type="image/jpeg">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vipul Yadav — Applied AI Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <!-- SEO and Social Media Meta Tags -->
-    <meta property="og:title" content="Amardeep Foundation - Light For Life" />
-    <meta property="og:description" content="An NGO dedicated to societal upliftment since 2015. We believe in the power of education to transform communities." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.amardeep.org" />
-    <meta property="og:site_name" content="Amardeep Foundation" />
-    <meta property="og:image" content="images/logo.png" />
-    <meta property="og:image:alt" content="Amardeep Foundation - Light For Life" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:locale" content="en_US" />
+:root {
+  --bg:      #080808;
+  --bg2:     #101010;
+  --bg3:     #161616;
+  --b:       rgba(255,255,255,0.07);
+  --bh:      rgba(255,255,255,0.14);
+  --text:    #e4e2dc;
+  --mid:     #b0ada6;
+  --muted:   #686562;
+  --accent:  #c8f060;
+  --blue:    #5ec5e8;
+  --fd:      'Syne', sans-serif;
+  --fm:      'DM Mono', monospace;
+}
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Amardeep Foundation - Spreading Knowledge, Empowering Lives" />
-    <meta name="twitter:description" content="An NGO dedicated to societal upliftment since 2015. We believe in the power of education to transform communities." />
-    <meta name="twitter:url" content="https://www.amardeep.org" />
-    <meta name="twitter:image" content="images/logo.png" />
-    <meta name="twitter:image:alt" content="An NGO dedicated to societal upliftment since 2015." />
-    
-    <style>
-        /* Custom styles for smooth scrolling and animations */
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* slate-50 */
-            color: #0f172a; /* slate-900 */
-        }
-        /* Animation for elements fading in on scroll */
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .fade-in-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        /* Header shadow on scroll */
-        .header-shadow {
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Slider styles */
-        .slider-container {
-            position: relative;
-            overflow: hidden;
-            border-radius: 0.5rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-        .slider-track {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        .slide {
-            min-width: 100%;
-            box-sizing: border-box;
-        }
-        .slider-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 9999px;
-            cursor: pointer;
-            z-index: 10;
-        }
-        .slider-button:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-        .slider-button.prev {
-            left: 1rem;
-        }
-        .slider-button.next {
-            right: 1rem;
-        }
-        /* Modal styles */
-        .modal {
-            transition: opacity 0.25s ease;
-        }
-        .modal-content {
-            transition: transform 0.25s ease;
-        }
-        
-        /* Aurora background for Hero section */
-        .hero-aurora-bg {
-            background-color: #111827; /* A dark fallback background */
-            background-image: 
-                radial-gradient(at 20% 25%, hsla(212, 90%, 50%, 0.4) 0px, transparent 50%),
-                radial-gradient(at 75% 30%, hsla(260, 90%, 60%, 0.4) 0px, transparent 50%),
-                radial-gradient(at 5% 95%, hsla(180, 95%, 55%, 0.3) 0px, transparent 50%),
-                radial-gradient(at 80% 90%, hsla(340, 85%, 60%, 0.3) 0px, transparent 50%);
-        }
+html { scroll-behavior: smooth; }
 
-        /* Team page specific styles */
-        #team-page {
-            padding-top: 40px; 
-            padding-bottom: 50px;
-        }
-    </style>
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--fm);
+  font-size: 14px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--bh); border-radius: 2px; }
+
+/* CUSTOM CURSOR */
+* { cursor: none !important; }
+#cur {
+  position: fixed;
+  width: 8px; height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s;
+  mix-blend-mode: difference;
+}
+#cur-ring {
+  position: fixed;
+  width: 32px; height: 32px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  opacity: 0.4;
+  transition: width 0.3s, height 0.3s, opacity 0.3s;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 200;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 52px;
+  height: 60px;
+  border-bottom: 1px solid var(--b);
+  background: rgba(8,8,8,0.88);
+  backdrop-filter: blur(16px);
+}
+.logo {
+  font-family: var(--fd);
+  font-weight: 800;
+  font-size: 17px;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.logo em { color: var(--accent); font-style: normal; }
+.nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--text); }
+.nav-dl {
+  background: var(--accent) !important;
+  color: #080808 !important;
+  padding: 5px 14px;
+  border-radius: 2px;
+  font-weight: 500;
+}
+.nav-dl:hover { opacity: 0.8; }
+
+/* WRAP */
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 52px; }
+
+/* HERO */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 100px 52px 60px;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+#hero::after {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(200,240,96,0.04) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-inner { max-width: 1080px; width: 100%; margin: 0 auto; }
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 32px;
+}
+.hero-badge::before { content: ''; width: 28px; height: 1px; background: var(--accent); }
+h1.name {
+  font-family: var(--fd);
+  font-size: clamp(60px, 9vw, 120px);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--text);
+  margin-bottom: 28px;
+}
+h1.name span { color: var(--muted); }
+.hero-sub {
+  font-size: 15px;
+  color: var(--mid);
+  max-width: 500px;
+  line-height: 1.75;
+  margin-bottom: 44px;
+}
+.hero-sub strong { color: var(--blue); font-weight: 400; }
+.ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 72px; }
+.btn-a {
+  background: var(--accent);
+  color: #080808;
+  padding: 11px 26px;
+  font-family: var(--fm);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: opacity 0.2s, transform 0.15s;
+}
+.btn-a:hover { opacity: 0.82; transform: translateY(-1px); }
+.btn-b {
+  border: 1px solid var(--bh);
+  color: var(--mid);
+  padding: 11px 26px;
+  font-family: var(--fm);
+  font-size: 13px;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: border-color 0.2s, color 0.2s, transform 0.15s;
+}
+.btn-b:hover { border-color: var(--text); color: var(--text); transform: translateY(-1px); }
+.stats {
+  display: flex;
+  border-top: 1px solid var(--b);
+  padding-top: 40px;
+  flex-wrap: wrap;
+  gap: 0;
+}
+.stat { flex: 1; min-width: 140px; padding-right: 40px; border-right: 1px solid var(--b); margin-right: 40px; }
+.stat:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+.stat-n { font-family: var(--fd); font-size: 38px; font-weight: 700; color: var(--text); letter-spacing: -0.03em; line-height: 1; margin-bottom: 6px; }
+.stat-l { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+
+/* SECTION */
+section.sec { padding: 100px 0; }
+.sec-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 56px; }
+.sec-n { font-size: 11px; color: var(--accent); letter-spacing: 0.1em; }
+.sec-t { font-family: var(--fd); font-size: clamp(26px, 3.5vw, 44px); font-weight: 700; letter-spacing: -0.03em; }
+
+/* ABOUT */
+.about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: start; }
+.about-text p { color: var(--mid); line-height: 1.9; margin-bottom: 18px; font-size: 14px; }
+.about-text p b { color: var(--text); font-weight: 400; }
+.info-table { display: flex; flex-direction: column; }
+.ir { display: flex; justify-content: space-between; align-items: center; padding: 13px 0; border-bottom: 1px solid var(--b); font-size: 13px; gap: 16px; }
+.ir .k { color: var(--muted); flex-shrink: 0; }
+.ir .v { color: var(--text); text-align: right; }
+.ir .v a { color: var(--text); text-decoration: none; transition: color 0.2s; }
+.ir .v a:hover { color: var(--accent); }
+
+/* PROJECTS */
+.proj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.card {
+  background: var(--bg2);
+  border: 1px solid var(--b);
+  padding: 32px;
+  transition: border-color 0.3s, background 0.3s;
+}
+.card:hover { border-color: var(--bh); background: var(--bg3); }
+.card .c-num  { color: var(--muted); font-size: 11px; letter-spacing: 0.1em; margin-bottom: 18px; transition: color 0.3s; }
+.card .c-desc { color: var(--mid);   font-size: 13px; line-height: 1.8; margin-bottom: 22px; transition: color 0.3s; }
+.card .c-tag  { color: var(--muted); border-color: rgba(255,255,255,0.1); transition: color 0.3s, border-color 0.3s; }
+.card:hover .c-num  { color: var(--mid); }
+.card:hover .c-desc { color: var(--text); }
+.card:hover .c-tag  { color: var(--mid); border-color: var(--bh); }
+.card.featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.c-title { font-family: var(--fd); font-size: 21px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; margin-bottom: 10px; }
+.c-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.c-tag { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 9px; border: 1px solid rgba(255,255,255,0.1); border-radius: 1px; }
+.c-tag.hi { border-color: var(--accent) !important; color: var(--accent) !important; }
+.c-gh { display: inline-flex; align-items: center; gap: 6px; margin-top: 18px; font-size: 12px; color: var(--accent); text-decoration: none; letter-spacing: 0.04em; opacity: 0.85; transition: opacity 0.2s; }
+.c-gh:hover { opacity: 1; }
+.impact-grid { display: flex; flex-direction: column; gap: 14px; }
+.imp { padding: 14px 16px; background: var(--bg); border: 1px solid var(--b); border-left: 2px solid var(--accent); }
+.imp-l { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 3px; }
+.imp-v { font-family: var(--fd); font-size: 16px; font-weight: 700; color: var(--accent); }
+
+/* SKILLS */
+.skills-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; }
+.sg { background: var(--bg2); border: 1px solid var(--b); padding: 26px; transition: border-color 0.3s, background 0.3s; }
+.sg:hover { border-color: var(--bh); background: var(--bg3); }
+.sg-title { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; }
+.sg ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.sg li { font-size: 13px; color: var(--mid); display: flex; align-items: center; gap: 9px; transition: color 0.3s; }
+.sg:hover li { color: var(--text); }
+.sg li::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--bh); flex-shrink: 0; transition: background 0.3s; }
+.sg:hover li::before { background: var(--accent); }
+
+/* EXPERIENCE */
+.exp-list { display: flex; flex-direction: column; gap: 2px; }
+.exp { background: var(--bg2); border: 1px solid var(--b); padding: 32px; display: grid; grid-template-columns: 170px 1fr; gap: 36px; transition: border-color 0.3s, background 0.3s; }
+.exp:hover { border-color: var(--bh); background: var(--bg3); }
+.exp-meta { display: flex; flex-direction: column; gap: 5px; }
+.exp-date { font-size: 11px; color: var(--accent); letter-spacing: 0.06em; }
+.exp-co { font-family: var(--fd); font-size: 15px; font-weight: 600; color: var(--text); }
+.exp-loc { font-size: 11px; color: var(--muted); transition: color 0.3s; }
+.exp:hover .exp-loc { color: var(--mid); }
+.exp-role { font-family: var(--fd); font-size: 19px; font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin-bottom: 14px; }
+.exp-ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.exp-ul li { font-size: 13px; color: var(--mid); padding-left: 16px; position: relative; line-height: 1.7; transition: color 0.3s; }
+.exp:hover .exp-ul li { color: var(--text); }
+.exp-ul li::before { content: '—'; position: absolute; left: 0; top: 2px; color: var(--accent); font-size: 11px; }
+
+/* CONTACT */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+.contact-h { font-family: var(--fd); font-size: clamp(36px, 5vw, 68px); font-weight: 800; letter-spacing: -0.04em; line-height: 0.93; margin-bottom: 18px; }
+.contact-h span { color: var(--accent); }
+.contact-sub { color: var(--mid); font-size: 13px; line-height: 1.85; }
+.cl-list { display: flex; flex-direction: column; gap: 2px; }
+.cl { display: flex; justify-content: space-between; align-items: center; padding: 18px 22px; background: var(--bg2); border: 1px solid var(--b); text-decoration: none; transition: border-color 0.3s, background 0.3s; }
+.cl:hover { border-color: var(--bh); background: var(--bg3); }
+.cl-k { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 2px; transition: color 0.3s; }
+.cl-v { font-size: 13px; color: var(--text); transition: color 0.3s; }
+.cl:hover .cl-k { color: var(--mid); }
+.cl:hover .cl-v { color: #fff; }
+.cl-arr { color: var(--muted); font-size: 15px; transition: transform 0.2s, color 0.2s; }
+.cl:hover .cl-arr { transform: translateX(4px); color: var(--accent); }
+.cl.dl .cl-v { color: var(--accent); }
+.cl.dl .cl-arr { color: var(--accent); }
+.cl.dl:hover .cl-arr { transform: translateY(3px); }
+
+/* FOOTER */
+footer { border-top: 1px solid var(--b); padding: 28px 52px; display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--muted); letter-spacing: 0.05em; }
+
+/* REVEAL */
+.rv { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.rv.in { opacity: 1; transform: none; }
+
+/* RESPONSIVE */
+@media (max-width: 800px) {
+  nav { padding: 0 20px; }
+  .nav-links { gap: 14px; }
+  .nav-links li:not(:last-child):not(:nth-last-child(2)) { display: none; }
+  #hero { padding: 90px 20px 50px; }
+  .wrap { padding: 0 20px; }
+  .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+  .proj-grid { grid-template-columns: 1fr; }
+  .card.featured { grid-column: auto; grid-template-columns: 1fr; gap: 32px; }
+  .skills-grid { grid-template-columns: 1fr 1fr; }
+  .exp { grid-template-columns: 1fr; gap: 12px; }
+  footer { flex-direction: column; gap: 6px; text-align: center; padding: 24px 20px; }
+}
+</style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header id="header" class="bg-white/80 backdrop-blur-md fixed top-0 left-0 right-0 z-40 transition-shadow duration-300">
-        <div class="container mx-auto px-6 py-2 flex justify-between items-center">
-            <!-- Logo -->
-            <a href="#home" id="logo-link" class="nav-link flex items-center space-x-2">
-                <img src="images/logo.png" alt="Amardeep Foundation Logo" class="h-12 w-12 object-contain">
-                <span class="text-xl font-bold text-slate-800">Amardeep Foundation</span>
-            </a>
-            <nav class="hidden md:flex space-x-8">
-                <a href="#home" class="nav-link text-slate-600 hover:text-indigo-600 transition">Home</a>
-                <a href="#about" class="nav-link text-slate-600 hover:text-indigo-600 transition">About</a>
-                <a href="#work" class="nav-link text-slate-600 hover:text-indigo-600 transition">Our Work</a>
-                <a href="#gallery" class="nav-link text-slate-600 hover:text-indigo-600 transition">Gallery</a>
-                <a href="#team" class="nav-link text-slate-600 hover:text-indigo-600 transition">Our Team</a>
-                <a href="#contact" class="nav-link text-slate-600 hover:text-indigo-600 transition">Contact</a>
-            </nav>
-            <button id="mobile-menu-button" class="md:hidden text-slate-800">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-             <a href="#home" class="nav-link block py-2 text-slate-600 hover:text-indigo-600">Home</a>
-             <a href="#about" class="nav-link block py-2 text-slate-600 hover:text-indigo-600">About</a>
-             <a href="#work" class="nav-link block py-2 text-slate-600 hover:text-indigo-600">Our Work</a>
-             <a href="#gallery" class="nav-link block py-2 text-slate-600 hover:text-indigo-600">Gallery</a>
-             <a href="#team" class="nav-link block py-2 text-slate-600 hover:text-indigo-600">Our Team</a>
-             <a href="#contact" class="nav-link block py-2 text-slate-600 hover:text-indigo-600">Contact</a>
-        </div>
-    </header>
+<div id="cur"></div>
+<div id="cur-ring"></div>
 
-    <main id="main-content">
-        <!-- Hero Section -->
-        <section id="home" class="hero-aurora-bg text-white pt-32 pb-20 text-center relative overflow-hidden">
-            <div class="container mx-auto px-6 relative z-10">
-                <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Light For Life</h1>
-                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8">An NGO dedicated to societal upliftment since 2015. We believe in the power of education to transform communities.</p>
-                <a href="#work" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full transition-transform duration-300 transform hover:scale-105">Discover Our Work</a>
-            </div>
-        </section>
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="logo">VY<em>.</em></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="Vipul_Yadav_CV.pdf" download class="nav-dl">↓ CV</a></li>
+  </ul>
+</nav>
 
-        <!-- About Us Section -->
-        <section id="about" class="py-20 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">About Amardeep Foundation</h2>
-                    <p class="text-slate-600 mt-2">Working for a better society since 2015.</p>
-                </div>
-                <div class="flex flex-col md:flex-row items-center gap-12">
-                    <div class="md:w-1/2 fade-in-up">
-                        <!-- Image Slider -->
-                        <div id="team-slider" class="slider-container">
-                            <div class="slider-track">
-                                <div class="slide"><img src="images/img(1).jpg" alt="Amardeep Foundation Team" class="w-full"></div>
-                                <div class="slide"><img src="images/IMG-20191027-WA0015(1).jpg" alt="Amardeep Foundation Volunteers" class="w-full"></div>
-                                <div class="slide"><img src="images/Amar Heritage.jpg" alt="Community Work" class="w-full"></div>
-                            </div>
-                            <button class="slider-button prev" id="prevBtn">&lsaquo;</button>
-                            <button class="slider-button next" id="nextBtn">&rsaquo;</button>
-                        </div>
-                    </div>
-                    <div class="md:w-1/2 fade-in-up">
-                        <h3 class="text-2xl font-semibold text-slate-800 mb-4">Our Mission</h3>
-                        <p class="text-slate-600 mb-4">
-                            Founded in 2015, the Amardeep Foundation is a non-governmental organization committed to fostering positive change within society. Our core mission is to empower individuals and communities through targeted initiatives in education, health, and social welfare.
-                        </p>
-                        <p class="text-slate-600">
-                            We envision a world where every person has the opportunity to reach their full potential. Through dedication and community collaboration, we strive to address and overcome the challenges faced by the underprivileged.
-                        </p>
-                        <div class="mt-6">
-                           <a href="#team" class="nav-link bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full transition-transform duration-300 transform hover:scale-105 inline-block">Read More About Our Team</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Our Work Section -->
-        <section id="work" class="py-20 bg-slate-50">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Our Key Initiatives</h2>
-                    <p class="text-slate-600 mt-2">Making a tangible difference in rural communities.</p>
-                </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 fade-in-up"><div class="text-indigo-500 mb-4"><svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg></div><h3 class="text-xl font-bold mb-2">Book Distribution Program</h3><p class="text-slate-600">We actively distribute educational books and learning materials in rural areas, ensuring that children have the resources they need to succeed in their studies and beyond.</p></div>
-                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 fade-in-up"><div class="text-green-500 mb-4"><svg class="w-12 h-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-6.364-.386 1.591-1.591M3 12h2.25m.386-6.364 1.591 1.591" /></svg></div><h3 class="text-xl font-bold mb-2">Community Health</h3><p class="text-slate-600">Organizing health camps and awareness programs to promote well-being and provide essential medical services to underserved populations.</p></div>
-                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 fade-in-up"><div class="text-sky-500 mb-4"><svg class="w-12 h-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m-7.5-2.962a3.75 3.75 0 0 1 5.25 0m-5.25 0a3.75 3.75 0 0 0-5.25 0M12 4.5v.01M12 7.5v.01M12 10.5v.01" /></svg></div><h3 class="text-xl font-bold mb-2">Social Welfare</h3><p class="text-slate-600">Implementing various social welfare projects aimed at improving living conditions and providing support to vulnerable groups within the community.</p></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Gallery Section -->
-        <section id="gallery" class="py-20 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Glimpses of Our Journey</h2>
-                    <p class="text-slate-600 mt-2">Moments that define our commitment.</p>
-                </div>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="grid gap-4"><div class="fade-in-up"><img class="h-auto max-w-full rounded-lg" src="images/logo.png" alt="Gallery Image"></div><div class="fade-in-up"><img class="h-auto max-w-full rounded-lg" src="images/504761378_4498896910336829_8504313478037536747_n.jpg" alt="Gallery Image"></div></div>
-                    <div class="grid gap-4"><div class="fade-in-up"><img class="h-auto max-w-full rounded-lg" src="images/503201359_4494769727416214_5294266085250959545_n.jpg" alt="Gallery Image"></div><div class="fade-in-up"><img class="h-auto max-w-full rounded-lg" src="images/503476309_4498897027003484_5637365696262662819_n.jpg" alt="Gallery Image"></div></div>
-                    <div class="grid gap-4"><div class="fade-in-up"><img class="h-auto max-w-full rounded-lg" src="images/503705460_4498896967003490_5617899454313389239_n.jpg" alt="Gallery Image"></div><div class="fade-in-up"><img class="h-auto max-w-full rounded-lg" src="images/500580989_4491772857715901_8887935468993735767_n.jpg" alt="Gallery Image"></div></div>
-                    <div class="grid gap-4"><div class="fade-in-up"><img class="h-auto max-w-full rounded-lg" src="images/504350233_4498897073670146_2895033632625151802_n.jpg" alt="Gallery Image"></div><div class="fade-in-up"><img class="h-auto max-w-full rounded-lg" src="images/503366377_4498896957003491_4877862569259086328_n.jpg" alt="Gallery Image"></div></div>
-                </div>
-                <div class="text-center mt-12 fade-in-up">
-                    <a href="#" id="view-more-btn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full transition-transform duration-300 transform hover:scale-105">View More Photos</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="py-20 bg-slate-50">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12"><h2 class="text-3xl md:text-4xl font-bold text-slate-800">Get In Touch</h2><p class="text-slate-600 mt-2">We'd love to hear from you. Reach out to us for collaborations or queries.</p></div>
-                <div class="flex flex-col md:flex-row gap-12"><div class="md:w-1/2 fade-in-up"><h3 class="text-xl font-semibold mb-4">Contact Details</h3><p class="text-slate-600 mb-2"><strong>Address:</strong> Shri Radheshyam Rd, Devariya, Mujar, Machhali Shahar, Jaunpur, Uttar Pradesh 222127</p><p>Mobile No. : <a href="tel:+919987270202" class="text-indigo-600 hover:underline">+91 9987270202</a></p><p class="text-slate-600 mb-2"><strong>Hours:</strong> Mon-Sun, 9:00 AM - 5:00 PM</p><p class="text-slate-600 mb-4"><strong>Website:</strong> <a href="http://amardeep.org/" class="text-indigo-600 hover:underline" target="_blank">amardeep.org</a></p><div class="w-full h-64 rounded-lg overflow-hidden shadow-md"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3596.538918846058!2d82.45348837539677!3d25.65342417741995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39901a0b0f024361%3A0x5605c58a25583ba6!2sAmardeep%20Foundation!5e0!3m2!1sen!2sin!4v1753344095000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div>
-                <!-- Contact Form -->
-                <div class="md:w-1/2 fade-in-up">
-                    <form id="contact-form" class="bg-white p-8 rounded-lg shadow-lg">
-                        <h3 class="text-xl font-semibold mb-6">Send us a Message</h3>
-                        <div class="mb-4">
-                            <label for="name" class="block text-slate-700 text-sm font-bold mb-2">Full Name</label>
-                            <input type="text" id="name" name="name" class="w-full px-3 py-2 border rounded-lg text-slate-700 focus:outline-none focus:border-indigo-500" placeholder="Your Name" required>
-                        </div>
-                        <div class="mb-4">
-                            <label for="email" class="block text-slate-700 text-sm font-bold mb-2">Email Address</label>
-                            <input type="email" id="email" name="email" class="w-full px-3 py-2 border rounded-lg text-slate-700 focus:outline-none focus:border-indigo-500" placeholder="you@example.com" required>
-                        </div>
-                        <div class="mb-6">
-                            <label for="message" class="block text-slate-700 text-sm font-bold mb-2">Message</label>
-                            <textarea id="message" name="message" rows="4" class="w-full px-3 py-2 border rounded-lg text-slate-700 focus:outline-none focus:border-indigo-500" placeholder="Your message..." required></textarea>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">Send Message</button>
-                        </div>
-                    </form>
-                </div>
-              </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Team Page Section (Hidden by default) -->
-    <section id="team-page" class="hidden bg-white">
-        <div class="container mx-auto px-6">
-            <!-- Back to Home Button -->
-            <div class="pt-6">
-                <a href="#home" class="nav-link inline-flex items-center text-indigo-600 hover:text-indigo-800 transition font-semibold">
-                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-                    Back to Home
-                </a>
-            </div>
-
-            <div class="text-center mb-12 mt-4">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Our Team & Inspiration</h2>
-            </div>
-            
-            <div class="mb-12 p-8 bg-indigo-50 border-l-4 border-indigo-500 rounded-r-lg text-center">
-                <img class="w-40 h-40 rounded-full mx-auto mb-4 object-cover shadow-lg" src="images/merorial.jpg" alt="In Memory of Amar Bahadur Yadav">
-                <h3 class="text-3xl font-bold text-slate-800">In Loving Memory of Amar Bahadur Yadav</h3>
-                <p class="text-slate-600 mt-4 max-w-2xl mx-auto">
-                    The Amardeep Foundation was established in the cherished memory of Shri Amar Bahadur Yadav. His spirit of compassion, dedication to education, and dream of a better society are the cornerstones of our mission. We are committed to carrying forward his legacy by lighting the lamp of knowledge and hope in every life we touch.
-                </p>
-            </div>
-
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Our Leaders</h2>
-                <p class="text-slate-600 mt-2">The driving force behind our mission.</p>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="text-center p-6 bg-slate-50 rounded-lg shadow-md hover:shadow-xl transition-shadow"><img class="w-32 h-32 rounded-full mx-auto mb-4" src="images/chairman.jpg" alt="Profile photo of Chairman"><h3 class="text-xl font-bold text-slate-800">Shree Radheshyam Yadav</h3><p class="text-indigo-600 font-semibold">Chairman</p><p class="text-slate-600 mt-2 text-sm">A visionary leader with a passion for social change and education. The inspiration and guiding light for the Amardeep Foundation.</p></div>
-                <div class="text-center p-6 bg-slate-50 rounded-lg shadow-md hover:shadow-xl transition-shadow"><img class="w-32 h-32 rounded-full mx-auto mb-4" src="images/President.jpg" alt="Profile photo of Working President"><h3 class="text-xl font-bold text-slate-800">Mr. L. S. Yadav</h3><p class="text-indigo-600 font-semibold">Working President & Founder</p><p class="text-slate-600 mt-2 text-sm">Dedicated to operational excellence and ensuring our initiatives create maximum impact on the ground.</p></div>
-                <div class="text-center p-6 bg-slate-50 rounded-lg shadow-md hover:shadow-xl transition-shadow"><img class="w-32 h-32 rounded-full mx-auto mb-4" src="images/pcyadav.png" alt="Profile photo of Secretary"><h3 class="text-xl font-bold text-slate-800">Dr. P. C. Yadav</h3><p class="text-indigo-600 font-semibold">Secretary</p><p class="text-slate-600 mt-2 text-sm">Manages the administrative and organizational aspects, ensuring the smooth functioning of the foundation.</p></div>
-                <div class="text-center p-6 bg-slate-50 rounded-lg shadow-md hover:shadow-xl transition-shadow"><img class="w-32 h-32 rounded-full mx-auto mb-4" src="images/sly.jpg" alt="Profile photo of Member"><h3 class="text-xl font-bold text-slate-800">Mr. S. L. Yadav</h3><p class="text-indigo-600 font-semibold">Member</p></div>
-                <div class="text-center p-6 bg-slate-50 rounded-lg shadow-md hover:shadow-xl transition-shadow"><img class="w-32 h-32 rounded-full mx-auto mb-4" src="images/aw.jpg" alt="Profile photo of Member"><h3 class="text-xl font-bold text-slate-800">Mr. Awadhesh Yadav</h3><p class="text-indigo-600 font-semibold">Member</p></div>
-                <div class="text-center p-6 bg-slate-50 rounded-lg shadow-md hover:shadow-xl transition-shadow"><img class="w-32 h-32 rounded-full mx-auto mb-4" src="images/brijesh.png" alt="Profile photo of Member"><h3 class="text-xl font-bold text-slate-800">Mr. Brijesh Yadav</h3><p class="text-indigo-600 font-semibold">Member</p></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="footer" class="bg-slate-800 text-white py-8">
-        <div class="container mx-auto px-6 text-center">
-            <p>&copy; <span id="copyright-year">2025</span> Amardeep Foundation. All Rights Reserved.</p>
-            <p class="text-sm text-slate-400 mt-2">Designed with care to empower communities.</p>
-        </div>
-    </footer>
-
-    <!-- Gallery Modal -->
-    <div id="gallery-modal" class="modal fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 hidden opacity-0">
-        <div class="modal-content bg-white rounded-lg shadow-xl max-w-5xl w-full max-h-[90vh] overflow-y-auto p-6 relative transform scale-95">
-            <button id="close-modal-btn" class="absolute top-2 right-4 text-slate-500 hover:text-slate-900 text-4xl font-bold">&times;</button>
-            <h2 class="text-3xl font-bold mb-6 text-center text-slate-800">Our Gallery</h2>
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                <img src="images/logo.png" class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300" alt="Gallery Image">
-                <img src="images/500580989_4491772857715901_8887935468993735767_n.jpg" class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300" alt="Gallery Image">
-                <img src="images/503345285_4498896973670156_6862128442574630085_n.jpg" class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300" alt="Gallery Image">
-                <img src="images/503366377_4498896957003491_4877862569259086328_n.jpg" class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300" alt="Gallery Image">
-                <img src="images/503640224_4498897020336818_7106862823258850360_n.jpg" class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300" alt="Gallery Image">
-                <img src="images/476803795_675982058147206_2921534438563046936_n.jpg" class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300" alt="Gallery Image">
-                <img src="images/Amar Heritage.jpg" class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300" alt="Gallery Image">
-                <img src="images/img(1).jpg" class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300" alt="Gallery Image">
-            </div>
-        </div>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Available for opportunities</div>
+    <h1 class="name">Vipul<br><span>Yadav</span></h1>
+    <p class="hero-sub">
+      Applied AI Engineer &amp; Full-Stack Developer building
+      <strong>offline-first AI systems</strong>, agentic workflows
+      and high-performance RAG pipelines in Mumbai.
+    </p>
+    <div class="ctas">
+      <a href="#projects" class="btn-a">View my work ↓</a>
+      <a href="Vipul_Yadav_CV.pdf" download class="btn-b">Download CV ↓</a>
     </div>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-n" id="yrs">—</div>
+        <div class="stat-l">Years experience</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">4</div>
+        <div class="stat-l">Projects shipped</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">100%</div>
+        <div class="stat-l">Air-gapped AI deploys</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">22+</div>
+        <div class="stat-l">Indian languages supported</div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="sec-n">01 /</span><h2 class="sec-t">About me</h2></div>
+    <div class="about-grid">
+      <div class="about-text rv">
+        <p>I'm an <b>Applied AI Engineer</b> based in Mumbai, working at the intersection of machine learning systems and scalable software architecture. My focus is building AI that works reliably in the real world — including in environments with no internet.</p>
+        <p>I transitioned from enterprise .NET development into AI engineering, which gives me an unusual edge: I understand both the <b>infrastructure side</b> (databases, APIs, deployment) and the <b>ML side</b> (embeddings, vector search, LLM orchestration).</p>
+        <p>Currently I specialise in deploying <b>local LLMs via Ollama</b>, building RAG pipelines with ChromaDB and SentenceTransformers, and engineering multilingual OCR systems using PaddleOCR — all optimised for CPU-only, air-gapped environments.</p>
+      </div>
+      <div class="info-table rv">
+        <div class="ir"><span class="k">Location</span><span class="v">Mumbai, Maharashtra</span></div>
+        <div class="ir"><span class="k">Role</span><span class="v">Applied AI Engineer</span></div>
+        <div class="ir"><span class="k">Company</span><span class="v">ESUOR digital LLP</span></div>
+        <div class="ir"><span class="k">Email</span><span class="v"><a href="mailto:vipularyany@gmail.com">vipularyany@gmail.com</a></span></div>
+        <div class="ir"><span class="k">GitHub</span><span class="v"><a href="https://github.com/vipularyan" target="_blank">github.com/vipularyan</a></span></div>
+        <div class="ir"><span class="k">LinkedIn</span><span class="v"><a href="https://linkedin.com/in/vipularyan" target="_blank">linkedin.com/in/vipularyan</a></span></div>
+        <div class="ir"><span class="k">Status</span><span class="v" style="color:var(--accent)">● Open to roles</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const mainContent = document.getElementById('main-content');
-        const teamPage = document.getElementById('team-page');
-        const footer = document.getElementById('footer');
-        const header = document.getElementById('header');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        
-        const yearSpan = document.getElementById('copyright-year');
-        if(yearSpan) {
-            yearSpan.textContent = new Date().getFullYear();
-        }
+<!-- PROJECTS -->
+<section class="sec" id="projects">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="sec-n">02 /</span><h2 class="sec-t">Projects</h2></div>
+    <div class="proj-grid">
 
-        const router = () => {
-            const hash = window.location.hash || '#home';
-            if (hash === '#team') {
-                mainContent.classList.add('hidden');
-                teamPage.classList.remove('hidden');
-                footer.classList.add('hidden');
-                window.scrollTo(0, 0);
-            } else {
-                mainContent.classList.remove('hidden');
-                teamPage.classList.add('hidden');
-                footer.classList.remove('hidden');
-                const targetElement = document.querySelector(hash);
-                if (targetElement) {
-                    // Let the browser handle smooth scroll for on-page links
-                }
-            }
-        };
-        
-        // Handle clicks on all navigation links
-        document.querySelectorAll('a.nav-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                const href = link.getAttribute('href');
+      <div class="card featured rv">
+        <div>
+          <div class="c-num">01 — Featured</div>
+          <div class="c-title">DocChat</div>
+          <p class="c-desc">A fully offline Document Intelligence platform for secure natural language querying of private PDF repositories. Built with a custom RAG pipeline — no data ever leaves your machine.</p>
+          <p class="c-desc">Engineered citation-first retrieval with relevance percentage scores, stateful multi-turn dialogue via ASP.NET Core Session management, and automated resource-kill fail-safes for Ollama model switching.</p>
+          <div class="c-tags">
+            <span class="c-tag hi">Featured</span>
+            <span class="c-tag">RAG Pipeline</span>
+            <span class="c-tag">Ollama</span>
+            <span class="c-tag">ChromaDB</span>
+            <span class="c-tag">PyMuPDF</span>
+            <span class="c-tag">SentenceTransformers</span>
+            <span class="c-tag">ASP.NET Core</span>
+          </div>
+        </div>
+        <div class="impact-grid">
+          <div class="imp"><div class="imp-l">Privacy model</div><div class="imp-v">100% Air-gapped</div></div>
+          <div class="imp"><div class="imp-l">Retrieval speed</div><div class="imp-v">Sub-second semantic search</div></div>
+          <div class="imp"><div class="imp-l">Key feature</div><div class="imp-v">Citation + relevance scoring</div></div>
+          <div class="imp"><div class="imp-l">Inference</div><div class="imp-v">CPU-only, no GPU required</div></div>
+        </div>
+      </div>
 
-                // If it's a link to the team page
-                if (href === '#team') {
-                    e.preventDefault();
-                    history.pushState({page: 'team'}, '', '#team');
-                    router();
-                } 
-                // If it's a link back to the main page sections
-                else if (href.startsWith('#')) {
-                     // Check if we are currently on the team page
-                    if(window.location.hash === '#team') {
-                        e.preventDefault();
-                        history.back(); // This will trigger the popstate event
-                    }
-                    // Otherwise, let the default smooth scroll happen
-                }
-            });
-        });
-        
-        // Listen for browser back/forward button
-        window.addEventListener('popstate', router);
-        // Run router on initial page load
-        router();
+      <div class="card rv">
+        <div class="c-num">02</div>
+        <div class="c-title">Multilingual OCR Engine</div>
+        <p class="c-desc">Cross-platform text extraction system supporting nearly all Indian languages. Optimised for CPU-only inference, generating clean structured JSON output for downstream pipelines.</p>
+        <div class="c-tags">
+          <span class="c-tag">PaddleOCR</span>
+          <span class="c-tag">Python</span>
+          <span class="c-tag">22+ Languages</span>
+          <span class="c-tag">CPU-only</span>
+          <span class="c-tag">JSON Output</span>
+        </div>
+      </div>
 
-        // --- Mobile Menu Toggle ---
-        if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-            document.querySelectorAll('#mobile-menu a').forEach(link => {
-                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
-            });
-        }
+      <div class="card rv">
+        <div class="c-num">03</div>
+        <div class="c-title">NSE Historical Data Downloader</div>
+        <p class="c-desc">A Python tool to bulk-download historical stock data from the National Stock Exchange of India. Automates data collection for any NSE-listed equity, enabling efficient backtesting and quantitative analysis workflows.</p>
+        <div class="c-tags">
+          <span class="c-tag">Python</span>
+          <span class="c-tag">NSE API</span>
+          <span class="c-tag">Finance</span>
+          <span class="c-tag">Data Engineering</span>
+          <span class="c-tag">Automation</span>
+        </div>
+        <a class="c-gh" href="https://github.com/vipularyan/NSE_historical_data_downloader" target="_blank">View on GitHub →</a>
+      </div>
 
-        // --- Header Shadow on Scroll ---
-        if (header) {
-            window.addEventListener('scroll', () => {
-                window.scrollY > 50 ? header.classList.add('header-shadow') : header.classList.remove('header-shadow');
-            });
-        }
+      <div class="card rv">
+        <div class="c-num">04</div>
+        <div class="c-title">Student Manager</div>
+        <p class="c-desc">Full-stack CRUD application for student administration with an integrated GPT-powered chatbot for automated administrative assistance. Built with C#, Bootstrap, jQuery, and PostgreSQL.</p>
+        <div class="c-tags">
+          <span class="c-tag">C#</span>
+          <span class="c-tag">PostgreSQL</span>
+          <span class="c-tag">GPT Integration</span>
+          <span class="c-tag">Bootstrap</span>
+          <span class="c-tag">jQuery</span>
+        </div>
+      </div>
 
-        // --- Fade-in Animations on Scroll ---
-        const faders = document.querySelectorAll('.fade-in-up');
-        if (faders.length > 0) {
-            const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-            const appearOnScroll = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, appearOptions);
-            faders.forEach(fader => appearOnScroll.observe(fader));
-        }
+    </div>
+  </div>
+</section>
 
-        // --- Team Photo Slider Logic ---
-        const slider = document.getElementById('team-slider');
-        if (slider) {
-            const track = slider.querySelector('.slider-track');
-            const slides = Array.from(track.children);
-            const nextButton = slider.querySelector('#nextBtn');
-            const prevButton = slider.querySelector('#prevBtn');
-            if (slides.length > 0) {
-                let currentIndex = 0;
-                let slideInterval;
-                const moveToSlide = (index) => {
-                    track.style.transform = `translateX(-${index * 100}%)`;
-                    currentIndex = index;
-                };
-                const startSlideShow = () => {
-                    stopSlideShow();
-                    slideInterval = setInterval(() => moveToSlide((currentIndex + 1) % slides.length), 5000);
-                };
-                const stopSlideShow = () => clearInterval(slideInterval);
-                nextButton.addEventListener('click', () => {
-                    moveToSlide((currentIndex + 1) % slides.length);
-                    startSlideShow();
-                });
-                prevButton.addEventListener('click', () => {
-                    moveToSlide((currentIndex - 1 + slides.length) % slides.length);
-                    startSlideShow();
-                });
-                startSlideShow();
-            }
-        }
+<!-- SKILLS -->
+<section class="sec" id="skills">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="sec-n">03 /</span><h2 class="sec-t">Skills</h2></div>
+    <div class="skills-grid">
+      <div class="sg rv">
+        <div class="sg-title">AI / ML</div>
+        <ul>
+          <li>LangChain &amp; LangGraph</li>
+          <li>Ollama (local LLMs)</li>
+          <li>RAG Pipelines</li>
+          <li>ChromaDB</li>
+          <li>SentenceTransformers</li>
+          <li>PaddleOCR</li>
+          <li>PyMuPDF</li>
+        </ul>
+      </div>
+      <div class="sg rv">
+        <div class="sg-title">Languages</div>
+        <ul>
+          <li>Python (Advanced)</li>
+          <li>C#</li>
+          <li>C++</li>
+          <li>JavaScript</li>
+          <li>SQL</li>
+        </ul>
+      </div>
+      <div class="sg rv">
+        <div class="sg-title">Web / Frameworks</div>
+        <ul>
+          <li>FastAPI</li>
+          <li>ASP.NET Core</li>
+          <li>.NET Core 8 MVC</li>
+          <li>Next.js</li>
+          <li>Bootstrap</li>
+        </ul>
+      </div>
+      <div class="sg rv">
+        <div class="sg-title">Infra &amp; Tools</div>
+        <ul>
+          <li>Linux Administration</li>
+          <li>PostgreSQL</li>
+          <li>MS SQL Server</li>
+          <li>Entity Framework</li>
+          <li>ADO.NET</li>
+          <li>Git</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // --- Gallery Modal Logic ---
-        const viewMoreBtn = document.getElementById('view-more-btn');
-        const galleryModal = document.getElementById('gallery-modal');
-        const closeModalBtn = document.getElementById('close-modal-btn');
-        if (viewMoreBtn && galleryModal && closeModalBtn) {
-            const openModal = (e) => {
-                e.preventDefault();
-                galleryModal.classList.remove('hidden');
-                setTimeout(() => {
-                    galleryModal.classList.remove('opacity-0');
-                    galleryModal.querySelector('.modal-content').classList.remove('scale-95');
-                }, 10);
-            };
-            const closeModal = () => {
-                galleryModal.classList.add('opacity-0');
-                galleryModal.querySelector('.modal-content').classList.add('scale-95');
-                setTimeout(() => galleryModal.classList.add('hidden'), 250);
-            };
-            viewMoreBtn.addEventListener('click', openModal);
-            closeModalBtn.addEventListener('click', closeModal);
-            galleryModal.addEventListener('click', (e) => {
-                if (e.target === galleryModal) closeModal();
-            });
-        }
-        
-        // --- EmailJS Contact Form ---
-        const contactForm = document.getElementById('contact-form');
-        if (contactForm) {
-            const SERVICE_ID = 'service_yeaf2ds';
-            const ADMIN_TEMPLATE_ID = 'admin_d74sxnq';
-            const USER_TEMPLATE_ID = 'user_dwpcbsc'; 
-            const PUBLIC_KEY = 'shhVbIng-3F-7DxSz';
+<!-- EXPERIENCE -->
+<section class="sec" id="experience">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="sec-n">04 /</span><h2 class="sec-t">Experience</h2></div>
+    <div class="exp-list">
 
-            emailjs.init(PUBLIC_KEY);
+      <div class="exp rv">
+        <div class="exp-meta">
+          <span class="exp-date">Nov 2025 — Present</span>
+          <span class="exp-co">ESUOR digital LLP</span>
+          <span class="exp-loc">Mumbai, India</span>
+        </div>
+        <div>
+          <div class="exp-role">Applied AI Engineer</div>
+          <ul class="exp-ul">
+            <li>Developing agentic AI workflows and multi-agent orchestration using LangChain and LangGraph.</li>
+            <li>Architecting robust RAG pipelines with structural document parsing via PyMuPDF and sub-second semantic retrieval using ChromaDB.</li>
+            <li>Implementing high-performance OCR using PaddleOCR, optimised for CPU-only inference across Windows and Linux.</li>
+            <li>Deploying local LLMs via Ollama with custom resource-management fail-safes and model-switching logic for air-gapped environments.</li>
+            <li>Supporting multilingual text extraction for nearly all Indian languages with high precision.</li>
+          </ul>
+        </div>
+      </div>
 
-            contactForm.addEventListener('submit', function(event) {
-                event.preventDefault();
+      <div class="exp rv">
+        <div class="exp-meta">
+          <span class="exp-date">Sep 2025 — Nov 2025</span>
+          <span class="exp-co">ESUOR digital LLP</span>
+          <span class="exp-loc">Mumbai, India</span>
+        </div>
+        <div>
+          <div class="exp-role">Data Scientist</div>
+          <ul class="exp-ul">
+            <li>Developed and tested data models for AI-driven applications using Python and machine learning libraries.</li>
+            <li>Conducted AI research and built foundational neural network prototypes to support product development.</li>
+          </ul>
+        </div>
+      </div>
 
-                const submitButton = this.querySelector('button[type="submit"]');
-                const originalButtonText = submitButton.textContent;
-                submitButton.disabled = true;
-                submitButton.textContent = 'Sending...';
+      <div class="exp rv">
+        <div class="exp-meta">
+          <span class="exp-date">Jun 2025 — Sep 2025</span>
+          <span class="exp-co">ESUOR digital LLP</span>
+          <span class="exp-loc">Mumbai, India</span>
+        </div>
+        <div>
+          <div class="exp-role">Software Developer</div>
+          <ul class="exp-ul">
+            <li>Built enterprise-level applications using C#, .NET Framework, and ASP.NET.</li>
+            <li>Managed database operations with PostgreSQL, MS SQL Server, Entity Framework, and ADO.NET.</li>
+            <li>Applied software design principles and C++ for low-level performance optimisation.</li>
+          </ul>
+        </div>
+      </div>
 
-                const formData = new FormData(this);
-                const templateParams = {
-                    from_name: formData.get('name'),
-                    to_email: formData.get('email'), // This is used by the USER_TEMPLATE_ID
-                    message: formData.get('message'),
-                    // No need to pass from_email here if it's not in the template
-                };
-                
-                // First, send the email to the admin
-                emailjs.send(SERVICE_ID, ADMIN_TEMPLATE_ID, templateParams)
-                    .then(() => {
-                        console.log('Admin email sent successfully!');
-                        // If admin email is successful, then send the email to the user
-                        return emailjs.send(SERVICE_ID, USER_TEMPLATE_ID, templateParams);
-                    })
-                    .then(() => {
-                        console.log('User confirmation email sent successfully!');
-                        submitButton.textContent = 'Message Sent!';
-                        contactForm.reset();
-                    })
-                    .catch((error) => {
-                        console.error('Failed to send one or more emails:', error);
-                        // The error object from EmailJS will contain status and text
-                        alert(`Failed to send message. Error: ${error.text || 'Unknown Error'}`);
-                        submitButton.textContent = 'Failed to Send';
-                    })
-                    .finally(() => {
-                        setTimeout(() => {
-                            submitButton.disabled = false;
-                            submitButton.textContent = originalButtonText;
-                        }, 3000);
-                    });
-            });
-        }
+      <div class="exp rv">
+        <div class="exp-meta">
+          <span class="exp-date">Jun 2024 — May 2025</span>
+          <span class="exp-co">ESUOR digital LLP</span>
+          <span class="exp-loc">Mumbai, India</span>
+        </div>
+        <div>
+          <div class="exp-role">Software Developer — Intern</div>
+          <ul class="exp-ul">
+            <li>Completed a one-year internship building enterprise web applications using C#, .NET Framework, and ASP.NET.</li>
+            <li>Managed database operations with PostgreSQL, MS SQL Server, Entity Framework, and ADO.NET for scalable web engineering.</li>
+            <li>Applied software design principles and C++ for low-level performance optimisation.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="rv">
+        <h2 class="contact-h">Let's<br>work<br><span>together.</span></h2>
+        <p class="contact-sub">Open to full-time roles, freelance projects, and interesting collaborations in AI engineering and full-stack development.</p>
+      </div>
+      <div class="cl-list rv">
+        <a href="mailto:vipularyany@gmail.com" class="cl">
+          <div><div class="cl-k">Email</div><div class="cl-v">vipularyany@gmail.com</div></div>
+          <span class="cl-arr">→</span>
+        </a>
+        <a href="https://linkedin.com/in/vipularyan" target="_blank" class="cl">
+          <div><div class="cl-k">LinkedIn</div><div class="cl-v">linkedin.com/in/vipularyan</div></div>
+          <span class="cl-arr">→</span>
+        </a>
+        <a href="https://github.com/vipularyan" target="_blank" class="cl">
+          <div><div class="cl-k">GitHub</div><div class="cl-v">github.com/vipularyan</div></div>
+          <span class="cl-arr">→</span>
+        </a>
+        <a href="tel:+919696193806" class="cl">
+          <div><div class="cl-k">Phone</div><div class="cl-v">+91 96961 93806</div></div>
+          <span class="cl-arr">→</span>
+        </a>
+        <a href="Vipul_Yadav_CV.pdf" download class="cl dl">
+          <div><div class="cl-k">Resume</div><div class="cl-v">Download CV (PDF)</div></div>
+          <span class="cl-arr">↓</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© <span id="yr"></span> Vipul Yadav</span>
+  <span>Mumbai, India</span>
+</footer>
+
+<script>
+  // Custom cursor
+  var cur  = document.getElementById('cur');
+  var ring = document.getElementById('cur-ring');
+  var mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', function(e) { mx = e.clientX; my = e.clientY; });
+  (function tick() {
+    cur.style.left = mx + 'px';
+    cur.style.top  = my + 'px';
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px';
+    ring.style.top  = ry + 'px';
+    requestAnimationFrame(tick);
+  })();
+  document.querySelectorAll('a, button').forEach(function(el) {
+    el.addEventListener('mouseenter', function() {
+      cur.style.width  = '14px'; cur.style.height  = '14px';
+      ring.style.width = '48px'; ring.style.height = '48px';
     });
-    </script>
+    el.addEventListener('mouseleave', function() {
+      cur.style.width  = '8px';  cur.style.height  = '8px';
+      ring.style.width = '32px'; ring.style.height = '32px';
+    });
+  });
 
+  // Dynamic years of experience — runs immediately, no dependencies
+  (function() {
+    var start = new Date(2024, 5, 1); // June 2024
+    var years = (new Date() - start) / (1000 * 60 * 60 * 24 * 365.25);
+    var val   = (Math.floor(years * 2) / 2).toFixed(1);
+    document.getElementById('yrs').textContent = val + '+';
+  })();
+
+  // Dynamic footer year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Scroll reveal
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e, i) {
+      if (e.isIntersecting) {
+        setTimeout(function() { e.target.classList.add('in'); }, i * 55);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.rv').forEach(function(el) { io.observe(el); });
+
+  // Active nav on scroll
+  var secs  = document.querySelectorAll('section[id]');
+  var links = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', function() {
+    var cur = '';
+    secs.forEach(function(s) {
+      if (window.scrollY >= s.offsetTop - 100) cur = s.id;
+    });
+    links.forEach(function(a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + cur);
+    });
+  }, { passive: true });
+</script>
 </body>
 </html>
