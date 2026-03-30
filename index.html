@@ -236,7 +236,9 @@ section.sec { padding: 100px 0; }
 .imp { padding: 14px 16px; background: var(--bg); border: 1px solid var(--b); border-left: 2px solid var(--accent); }
 .imp-l { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 3px; }
 .imp-v { font-family: var(--fd); font-size: 16px; font-weight: 700; color: var(--accent); }
-
+.c-section-challenge {  color: var(--accent);  margin-top: 18px;}
+.c-section-challenge::before {  background: var(--accent);}
+  
 /* SKILLS */
 .skills-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; }
 .sg { background: var(--bg2); border: 1px solid var(--b); padding: 26px; transition: border-color 0.3s, background 0.3s; }
@@ -392,6 +394,8 @@ footer { border-top: 1px solid var(--b); padding: 28px 52px; display: flex; just
           <div class="c-title">DocChat</div>
           <p class="c-desc">A fully offline Document Intelligence platform for secure natural language querying of private PDF repositories. Built with a custom RAG pipeline — no data ever leaves your machine.</p>
           <p class="c-desc">Engineered citation-first retrieval with relevance percentage scores, stateful multi-turn dialogue via ASP.NET Core Session management, and automated resource-kill fail-safes for Ollama model switching.</p>
+          div class="c-section-label c-section-challenge">Challenges</div>
+          <p class="c-desc">The core challenge was running everything on a local system without a GPU. Benchmarked multiple LLMs before landing on a model optimised for low-spec systems — capable of running on any machine with a minimum of 8 GB RAM. Also built automated resource-kill fail-safes to handle Ollama model switching without memory leaks or process lock-ups.</p>
           <div class="c-tags">
             <span class="c-tag hi">Featured</span>
             <span class="c-tag">RAG Pipeline</span>
@@ -427,6 +431,8 @@ footer { border-top: 1px solid var(--b); padding: 28px 52px; display: flex; just
         <div class="c-num">03</div>
         <div class="c-title">NSE Historical Data Downloader</div>
         <p class="c-desc">A Python tool to bulk-download historical stock data from the National Stock Exchange of India. Automates data collection for any NSE-listed equity, enabling efficient backtesting and quantitative analysis workflows.</p>
+        <div class="c-section-label c-section-challenge">Challenges</div>
+        <p class="c-desc">NSE actively blocks bots from scraping their website. Bypassed their bot-detection layer through a combination of spoofed browser headers, session rotation to mimic real user behaviour, and randomised request delays to avoid rate-limit triggers — ultimately reverse-engineering their request flow to extract data reliably.</p>
         <div class="c-tags">
           <span class="c-tag">Python</span>
           <span class="c-tag">NSE API</span>
