@@ -236,7 +236,9 @@ section.sec { padding: 100px 0; }
 .imp { padding: 14px 16px; background: var(--bg); border: 1px solid var(--b); border-left: 2px solid var(--accent); }
 .imp-l { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 3px; }
 .imp-v { font-family: var(--fd); font-size: 16px; font-weight: 700; color: var(--accent); }
-
+.c-section-challenge {  color: var(--accent);  margin-top: 18px;}
+.c-section-challenge::before {  background: var(--accent);}
+  
 /* SKILLS */
 .skills-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; }
 .sg { background: var(--bg2); border: 1px solid var(--b); padding: 26px; transition: border-color 0.3s, background 0.3s; }
@@ -318,7 +320,7 @@ footer { border-top: 1px solid var(--b); padding: 28px 52px; display: flex; just
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="Vipul Yadav CV.pdf" download class="nav-dl">↓ CV</a></li>
+    <li><a href="Vipul Yadav Applied AI Engineer CV.pdf" download class="nav-dl">↓ CV</a></li>
   </ul>
 </nav>
 
@@ -328,13 +330,13 @@ footer { border-top: 1px solid var(--b); padding: 28px 52px; display: flex; just
     <div class="hero-badge">Available for opportunities</div>
     <h1 class="name">Vipul<br><span>Yadav</span></h1>
     <p class="hero-sub">
-      Applied AI Engineer &amp; Full-Stack Developer building
-      <strong>offline-first AI systems</strong>, agentic workflows
-      and high-performance RAG pipelines in Mumbai.
+      AI developer specializing in local LLMs, RAG pipelines, API integrations, and agentic workflows
+on Linux. Optimizes for both GPU and CPU inference. Bridges enterprise .NET/C# patterns with
+modern Python AI stacks, focusing on scalable, privacy-preserving ML.
     </p>
     <div class="ctas">
       <a href="#projects" class="btn-a">View my work ↓</a>
-      <a href="Vipul AI Engineer CV.pdf" download class="btn-b">Download CV ↓</a>
+      <a href="Vipul Yadav CV.pdf" download class="btn-b">Download CV ↓</a>
     </div>
     <div class="stats">
       <div class="stat">
@@ -392,6 +394,8 @@ footer { border-top: 1px solid var(--b); padding: 28px 52px; display: flex; just
           <div class="c-title">DocChat</div>
           <p class="c-desc">A fully offline Document Intelligence platform for secure natural language querying of private PDF repositories. Built with a custom RAG pipeline — no data ever leaves your machine.</p>
           <p class="c-desc">Engineered citation-first retrieval with relevance percentage scores, stateful multi-turn dialogue via ASP.NET Core Session management, and automated resource-kill fail-safes for Ollama model switching.</p>
+          <div class="c-section-label c-section-challenge">Challenges</div>
+          <p class="c-desc">The core challenge was running everything on a local system without a GPU. Benchmarked multiple LLMs before landing on a model optimised for low-spec systems — capable of running on any machine with a minimum of 8 GB RAM. Also built automated resource-kill fail-safes to handle Ollama model switching without memory leaks or process lock-ups.</p>
           <div class="c-tags">
             <span class="c-tag hi">Featured</span>
             <span class="c-tag">RAG Pipeline</span>
@@ -427,6 +431,8 @@ footer { border-top: 1px solid var(--b); padding: 28px 52px; display: flex; just
         <div class="c-num">03</div>
         <div class="c-title">NSE Historical Data Downloader</div>
         <p class="c-desc">A Python tool to bulk-download historical stock data from the National Stock Exchange of India. Automates data collection for any NSE-listed equity, enabling efficient backtesting and quantitative analysis workflows.</p>
+        <div class="c-section-label c-section-challenge">Challenges</div>
+        <p class="c-desc">NSE actively blocks bots from scraping their website. Bypassed their bot-detection layer through a combination of spoofed browser headers, session rotation to mimic real user behaviour, and randomised request delays to avoid rate-limit triggers — ultimately reverse-engineering their request flow to extract data reliably.</p>
         <div class="c-tags">
           <span class="c-tag">Python</span>
           <span class="c-tag">NSE API</span>
@@ -439,8 +445,8 @@ footer { border-top: 1px solid var(--b); padding: 28px 52px; display: flex; just
 
       <div class="card rv">
         <div class="c-num">04</div>
-        <div class="c-title">Student Manager</div>
-        <p class="c-desc">Full-stack CRUD application for student administration with an integrated GPT-powered chatbot for automated administrative assistance. Built with C#, Bootstrap, jQuery, and PostgreSQL.</p>
+        <div class="c-title">AI Enhanced Student Management System</div>
+        <p class="c-desc">Full-stack application for student administration with an integrated GPT-powered chatbot for automated administrative assistance. Built with C#, Bootstrap, jQuery, and PostgreSQL.</p>
         <div class="c-tags">
           <span class="c-tag">C#</span>
           <span class="c-tag">PostgreSQL</span>
@@ -511,12 +517,12 @@ footer { border-top: 1px solid var(--b); padding: 28px 52px; display: flex; just
   <div class="wrap">
     <div class="sec-head rv"><span class="sec-n">04 /</span><h2 class="sec-t">Experience</h2></div>
     <div class="exp-list">
-
+ 
       <div class="exp rv">
         <div class="exp-meta">
-          <span class="exp-date">Nov 2025 — Present</span>
+          <span class="exp-date">Jan 2026 — Apr 2026</span>
           <span class="exp-co">ESUOR digital LLP</span>
-          <span class="exp-loc">Mumbai, India</span>
+          <span class="exp-loc">Mumbai, India · Freelance</span>
         </div>
         <div>
           <div class="exp-role">Applied AI Engineer</div>
@@ -529,54 +535,22 @@ footer { border-top: 1px solid var(--b); padding: 28px 52px; display: flex; just
           </ul>
         </div>
       </div>
-
+ 
       <div class="exp rv">
         <div class="exp-meta">
-          <span class="exp-date">Sep 2025 — Nov 2025</span>
+          <span class="exp-date">Sep 2025 — Jan 2026</span>
           <span class="exp-co">ESUOR digital LLP</span>
-          <span class="exp-loc">Mumbai, India</span>
+          <span class="exp-loc">Mumbai, India · Internship</span>
         </div>
         <div>
-          <div class="exp-role">Data Scientist — Intern</div>
+          <div class="exp-role">Data Scientist</div>
           <ul class="exp-ul">
             <li>Developed and tested data models for AI-driven applications using Python and machine learning libraries.</li>
             <li>Conducted AI research and built foundational neural network prototypes to support product development.</li>
           </ul>
         </div>
       </div>
-
-      <div class="exp rv">
-        <div class="exp-meta">
-          <span class="exp-date">Jun 2025 — Sep 2025</span>
-          <span class="exp-co">ESUOR digital LLP</span>
-          <span class="exp-loc">Mumbai, India</span>
-        </div>
-        <div>
-          <div class="exp-role">Software Developer</div>
-          <ul class="exp-ul">
-            <li>Built enterprise-level applications using C#, .NET Framework, and ASP.NET.</li>
-            <li>Managed database operations with PostgreSQL, MS SQL Server, Entity Framework, and ADO.NET.</li>
-            <li>Applied software design principles and C++ for low-level performance optimisation.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="exp rv">
-        <div class="exp-meta">
-          <span class="exp-date">Jun 2024 — May 2025</span>
-          <span class="exp-co">ESUOR digital LLP</span>
-          <span class="exp-loc">Mumbai, India</span>
-        </div>
-        <div>
-          <div class="exp-role">Software Developer — Intern</div>
-          <ul class="exp-ul">
-            <li>Completed a one-year internship building enterprise web applications using C#, .NET Framework, and ASP.NET.</li>
-            <li>Managed database operations with PostgreSQL, MS SQL Server, Entity Framework, and ADO.NET for scalable web engineering.</li>
-            <li>Applied software design principles and C++ for low-level performance optimisation.</li>
-          </ul>
-        </div>
-      </div>
-
+ 
     </div>
   </div>
 </section>
@@ -602,7 +576,7 @@ footer { border-top: 1px solid var(--b); padding: 28px 52px; display: flex; just
           <div><div class="cl-k">GitHub</div><div class="cl-v">github.com/vipularyan</div></div>
           <span class="cl-arr">→</span>
         </a>
-        <a href="Vipul AI Engineer CV.pdf" download class="cl dl">
+        <a href="Vipul Yadav CV.pdf" download class="cl dl">
           <div><div class="cl-k">Resume</div><div class="cl-v">Download CV (PDF)</div></div>
           <span class="cl-arr">↓</span>
         </a>
@@ -644,7 +618,7 @@ footer { border-top: 1px solid var(--b); padding: 28px 52px; display: flex; just
 
   // Dynamic years of experience — runs immediately, no dependencies
   (function() {
-    var start = new Date(2024, 5, 1); // June 2024
+    var start = new Date(2025, 8, 1); // June 2024
     var years = (new Date() - start) / (1000 * 60 * 60 * 24 * 365.25);
     var val   = (Math.floor(years * 2) / 2).toFixed(1);
     document.getElementById('yrs').textContent = val + '+';
