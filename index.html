@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Vipul Aryan Yadav, vipularyanyadav, vipul yadav,Applied AI Engineer in Mumbai specializing in local LLMs, RAG, agentic AI, multilingual OCR, Python and .NET. Explore projects, experience and AI engineering work, Vipul aryan, vipul aryan portfolio, vipul aryan resume, vipul aryan cv, vipul aryan github">
+  <meta name="description" content="Vipul Aryan Yadav, vipularyanyadav, vipul yadav,Applied AI Engineer in Mumbai specializing in local LLMs, RAG, agentic AI, Python and .NET, Vipul aryan, vipul aryan portfolio, vipul aryan resume, vipul aryan cv">
   <title>Vipul Yadav | Applied AI Engineer in Mumbai | LLM & RAG Engineer</title>
   <link rel="canonical" href="https://vipularyan.github.io/">
   <!-- Open Graph -->
@@ -62,14 +62,15 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#hero" class="logo">VY<em>.</em></a>
+  <a href="index.html#hero" class="logo">VY<em>.</em></a>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="Vipul AI Engineer CV.pdf" download class="nav-dl">↓ CV</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="index.html#skills">Skills</a></li>
+    <li><a href="index.html#experience">Experience</a></li>
+    <li><a href="blog/index.html">Blog</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="./Vipul AI Engineer CV.pdf" download class="nav-dl">↓ CV</a></li>
   </ul>
 </nav>
 
@@ -87,8 +88,8 @@ on Linux. Optimizes for both GPU and CPU inference. Bridges enterprise .NET/C# p
 modern Python AI stacks, focusing on scalable, privacy-preserving ML.
     </p>
     <div class="ctas">
-      <a href="#projects" class="btn-a">View my work ↓</a>
-      <a href="Vipul AI Engineer CV.pdf" download class="btn-b">Download CV ↓</a>
+      <a href="index.html#projects" class="btn-a">View my work ↓</a>
+      <a href="./Vipul AI Engineer CV.pdf" download class="btn-b">Download CV ↓</a>
     </div>
     <div class="stats">
       <div class="stat">
@@ -341,66 +342,6 @@ modern Python AI stacks, focusing on scalable, privacy-preserving ML.
   <span>Mumbai, India</span>
 </footer>
 
-<script>
-  // Custom cursor
-  var cur  = document.getElementById('cur');
-  var ring = document.getElementById('cur-ring');
-  var mx = 0, my = 0, rx = 0, ry = 0;
-  document.addEventListener('mousemove', function(e) { mx = e.clientX; my = e.clientY; });
-  (function tick() {
-    cur.style.left = mx + 'px';
-    cur.style.top  = my + 'px';
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    ring.style.left = rx + 'px';
-    ring.style.top  = ry + 'px';
-    requestAnimationFrame(tick);
-  })();
-  document.querySelectorAll('a, button').forEach(function(el) {
-    el.addEventListener('mouseenter', function() {
-      cur.style.width  = '14px'; cur.style.height  = '14px';
-      ring.style.width = '48px'; ring.style.height = '48px';
-    });
-    el.addEventListener('mouseleave', function() {
-      cur.style.width  = '8px';  cur.style.height  = '8px';
-      ring.style.width = '32px'; ring.style.height = '32px';
-    });
-  });
-
-  // Dynamic years of experience — runs immediately, no dependencies
-  (function() {
-    var start = new Date(2025, 8, 1); 
-    var years = (new Date() - start) / (1000 * 60 * 60 * 24 * 365.25);
-    var val   = (Math.floor(years * 2) / 2).toFixed(1);
-    document.getElementById('yrs').textContent = val + '+';
-  })();
-
-  // Dynamic footer year
-  document.getElementById('yr').textContent = new Date().getFullYear();
-
-  // Scroll reveal
-  var io = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e, i) {
-      if (e.isIntersecting) {
-        setTimeout(function() { e.target.classList.add('in'); }, i * 55);
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.rv').forEach(function(el) { io.observe(el); });
-
-  // Active nav on scroll
-  var secs  = document.querySelectorAll('section[id]');
-  var links = document.querySelectorAll('.nav-links a');
-  window.addEventListener('scroll', function() {
-    var cur = '';
-    secs.forEach(function(s) {
-      if (window.scrollY >= s.offsetTop - 100) cur = s.id;
-    });
-    links.forEach(function(a) {
-      a.classList.toggle('active', a.getAttribute('href') === '#' + cur);
-    });
-  }, { passive: true });
-</script>
+<script src="script.js"></script>
 </body>
 </html>

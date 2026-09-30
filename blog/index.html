@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080808">
+  <title>Blog — Vipul Aryan Yadav</title>
+  <meta name="description" content="Notes on software engineering, AI, local LLMs, .NET, search systems and things I learn while building.">
+  <link rel="canonical" href="https://vipularyan.com/blog/">
+  <meta property="og:title" content="Blog — Vipul Aryan Yadav">
+  <meta property="og:description" content="Notes on software engineering, AI, local LLMs, .NET and things I learn while building.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vipularyan.com/blog/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="blog.css">
+</head>
+<body>
+  <div id="cur"></div>
+  <div id="cur-ring"></div>
+
+  <nav>
+    <a class="logo" href="../">VY<em>.</em></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Portfolio</a></li>
+      <li><a class="active" href="./">Blog</a></li>
+      <li><a href="#topics">Topics</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <a class="nav-back" href="../">← Back</a>
+  </nav>
+
+  <main>
+    <header class="blog-hero wrap reveal">
+      <div class="eyebrow"><span></span> 05 / WRITING</div>
+      <h1>Things I learn<br><i>while building.</i></h1>
+      <div class="hero-bottom">
+        <p>Notes, experiments and practical lessons from building software, AI systems and occasionally breaking things before making them work.</p>
+        <div class="hero-meta">UPDATED<br><strong>SEP 2026</strong></div>
+      </div>
+    </header>
+
+    <section class="featured wrap reveal" aria-labelledby="featured-title">
+      <div class="section-label"><span>01</span> FEATURED</div>
+      <a class="featured-card" href="./posts/building-local-rag.html">
+        <div class="featured-copy">
+          <div class="post-meta"><span>AI / RAG</span><span>10 MIN READ</span></div>
+          <h2 id="featured-title">Building a Local RAG System<br>Without a Cloud API</h2>
+          <p>What I learned while wiring embeddings, vector search, a local LLM and a .NET application into one practical retrieval pipeline.</p>
+          <div class="read-link">READ ARTICLE <b>↗</b></div>
+        </div>
+        <div class="featured-art" aria-hidden="true">
+          <div class="art-grid"></div>
+          <div class="art-orbit orbit-a"></div>
+          <div class="art-orbit orbit-b"></div>
+          <div class="art-core">RAG</div>
+        </div>
+      </a>
+    </section>
+
+    <section class="posts wrap reveal" id="latest" aria-labelledby="latest-title">
+      <div class="section-label"><span>02</span> LATEST</div>
+      <div class="section-title-row">
+        <h2 id="latest-title">Recent writing</h2>
+        <span>01—03</span>
+      </div>
+
+      <div class="post-list">
+        <a class="post-row" href="./posts/opensearch-vector-search.html">
+          <div class="post-number">01</div>
+          <div class="post-main">
+            <div class="post-tags"><span>SEARCH</span><span>.NET</span></div>
+            <h3>What I learned debugging vector search with OpenSearch</h3>
+            <p>Mappings, k-NN fields, duplicate documents and the weird failure modes that don't show up in the first tutorial.</p>
+          </div>
+          <div class="post-date">SEP 2026<br><small>8 MIN</small></div>
+          <div class="arrow">↗</div>
+        </a>
+
+        <a class="post-row" href="./posts/local-llm-api.html">
+          <div class="post-number">02</div>
+          <div class="post-main">
+            <div class="post-tags"><span>AI</span><span>PYTHON</span></div>
+            <h3>Running a local LLM behind a streaming API</h3>
+            <p>A practical look at FastAPI, SSE streaming and connecting a local model to an ASP.NET Core frontend.</p>
+          </div>
+          <div class="post-date">SEP 2026<br><small>7 MIN</small></div>
+          <div class="arrow">↗</div>
+        </a>
+
+        <a class="post-row" href="./posts/dotnet-secrets.html">
+          <div class="post-number">03</div>
+          <div class="post-main">
+            <div class="post-tags"><span>.NET</span><span>BACKEND</span></div>
+            <h3>Keeping secrets out of an ASP.NET Core project</h3>
+            <p>Why development configuration belongs outside source control and how I keep local credentials manageable.</p>
+          </div>
+          <div class="post-date">AUG 2026<br><small>5 MIN</small></div>
+          <div class="arrow">↗</div>
+        </a>
+      </div>
+    </section>
+
+    <section class="topics wrap reveal" id="topics" aria-labelledby="topics-title">
+      <div class="section-label"><span>03</span> TOPICS</div>
+      <div class="topic-grid" id="topics-title">
+        <a href="#latest">AI / LLM <span>→</span></a>
+        <a href="#latest">.NET <span>→</span></a>
+        <a href="#latest">SEARCH <span>→</span></a>
+        <a href="#latest">SYSTEMS <span>→</span></a>
+        <a href="#latest">WEB <span>→</span></a>
+        <a href="#latest">LEARNING <span>→</span></a>
+      </div>
+    </section>
+
+    <section class="about wrap reveal" id="about" aria-labelledby="about-title">
+      <div class="section-label"><span>04</span> ABOUT THIS BLOG</div>
+      <div class="about-grid">
+        <h2 id="about-title">Built in public.<br><i>Learned the hard way.</i></h2>
+        <div>
+          <p>This is where I write about the problems I actually run into while building software — not polished textbook examples.</p>
+          <p>Expect architecture notes, debugging stories, experiments, AI projects and useful snippets I want to remember later.</p>
+          <a class="text-link" href="../">MEET THE AUTHOR ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <span>© <span id="blog-yr"> VIPUL YADAV</span>
+    <a href="../index.html">PORTFOLIO ↗</a>
+  </footer>
+
+  <script src="blog.js"></script>
+</body>
+</html>

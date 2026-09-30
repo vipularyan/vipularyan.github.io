@@ -4,5 +4,28 @@
     <url>
         <loc>https://vipularyan.github.io/</loc>
     </url>
+    <url>
+        <loc>https://vipularyan.github.io/blog/</loc>
+        <lastmod>2026-09-30</lastmod>
+    </url>
 
+    <url>
+        <loc>https://vipularyan.github.io/blog/building-local-rag.html</loc>
+        <lastmod>2026-09-30</lastmod>
+    </url>
+
+    <url>
+        <loc>https://vipularyan.github.io/blog/dotnet-secrets.html</loc>
+        <lastmod>2026-09-30</lastmod>
+    </url>
+
+    <url>
+        <loc>https://vipularyan.github.io/blog/local-llm-api.html</loc>
+        <lastmod>2026-09-30</lastmod>
+    </url>
+
+    <url>
+        <loc>https://vipularyan.github.io/blog/opensearch-vector-search.html</loc>
+        <lastmod>2026-09-30</lastmod>
+    </url>
 </urlset>
