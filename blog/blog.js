@@ -1,20 +1,51 @@
-const cur = document.getElementById('cur');
-const ring = document.getElementById('cur-ring');
+const cur = document.getElementById("cur");
+const ring = document.getElementById("cur-ring");
 
-if (window.matchMedia('(pointer:fine)').matches) {
-  let mx = innerWidth / 2, my = innerHeight / 2;
-  let rx = mx, ry = my;
-  addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cur.style.left = mx + 'px'; cur.style.top = my + 'px'; });
-  function follow() {
-    rx += (mx - rx) * .13; ry += (my - ry) * .13;
-    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-    requestAnimationFrame(follow);
-  }
-  follow();
-  document.querySelectorAll('a').forEach(a => {
-    a.addEventListener('mouseenter', () => { cur.style.width='12px'; cur.style.height='12px'; ring.style.width='42px'; ring.style.height='42px'; ring.style.opacity='.65'; });
-    a.addEventListener('mouseleave', () => { cur.style.width='8px'; cur.style.height='8px'; ring.style.width='32px'; ring.style.height='32px'; ring.style.opacity='.4'; });
-  });
+if (cur && ring) {
+    let mouseX = 0;
+    let mouseY = 0;
+    let ringX = 0;
+    let ringY = 0;
+
+    document.addEventListener("mousemove", (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+
+        cur.style.left = `${mouseX}px`;
+        cur.style.top = `${mouseY}px`;
+    });
+
+    function animateRing() {
+        ringX += (mouseX - ringX) * 0.15;
+        ringY += (mouseY - ringY) * 0.15;
+
+        ring.style.left = `${ringX}px`;
+        ring.style.top = `${ringY}px`;
+
+        requestAnimationFrame(animateRing);
+    }
+
+    animateRing();
+
+    document.querySelectorAll("a, button").forEach((el) => {
+        el.addEventListener("mouseenter", () => {
+            cur.style.width = "12px";
+            cur.style.height = "12px";
+
+            ring.style.width = "44px";
+            ring.style.height = "44px";
+            ring.style.opacity = "0.7";
+        });
+
+        el.addEventListener("mouseleave", () => {
+            cur.style.width = "8px";
+            cur.style.height = "8px";
+
+            ring.style.width = "32px";
+            ring.style.height = "32px";
+            ring.style.opacity = "0.4";
+        });
+    });
 }
 
 const observer = new IntersectionObserver(entries => {
